@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     getTasks () {
-      axios.get('/api/tasks').then(
+      axios.get(`http://localhost:3000/api/tasks`).then(
         result => {
           console.log(result.data)
           this.todos = result.data
@@ -59,7 +59,7 @@ export default {
       )
     },
     addNewTask () {
-      axios.post('/api/task',
+      axios.post(`http://localhost:3000/api/task`,
         { task_name: this.taskname }
       ).then((res) => {
         this.taskname = ''
@@ -75,7 +75,7 @@ export default {
       this.isEdit = true
     },
     updateTask () {
-      axios.put(`/api/task/${this.id}`,
+      axios.put(`http://localhost:3000/api/task/${this.id}`,
         { task_name: this.taskname }
       ).then((res) => {
         this.taskname = ''
@@ -87,7 +87,7 @@ export default {
       })
     },
     deleteTask (id) {
-      axios.delete(`/api/task/${id}`
+      axios.delete(`http://localhost:3000/api/task/${id}`
       ).then((res) => {
         this.taskname = ''
         this.getTasks()

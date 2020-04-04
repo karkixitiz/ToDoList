@@ -3,8 +3,13 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import axios from 'axios'
+require('../node_modules/bootstrap/dist/css/bootstrap.css')
 
 Vue.config.productionTip = false
+
+// make axios accessible in global scope
+window.axios = axios
 
 /* eslint-disable no-new */
 new Vue({

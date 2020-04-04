@@ -1,6 +1,6 @@
 var express = require('express')
 var router = express.Router()
-const Task = require('./models/Task')
+const Task = require('../models/Task')
 
 // Get All Tasks
 router.get('/tasks', (req, res, next) => {
