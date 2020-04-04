@@ -34,6 +34,7 @@
 <script>
 
 import axios from 'axios'
+const BASE_URL = 'http://localhost:3000'
 export default {
   data () {
     return {
@@ -48,7 +49,7 @@ export default {
   },
   methods: {
     getTasks () {
-      axios.get(`http://localhost:3000/api/tasks`).then(
+      axios.get(`${BASE_URL}/api/tasks`).then(
         result => {
           console.log(result.data)
           this.todos = result.data
@@ -59,7 +60,7 @@ export default {
       )
     },
     addNewTask () {
-      axios.post(`http://localhost:3000/api/task`,
+      axios.post(`${BASE_URL}/api/task`,
         { task_name: this.taskname }
       ).then((res) => {
         this.taskname = ''
@@ -75,7 +76,7 @@ export default {
       this.isEdit = true
     },
     updateTask () {
-      axios.put(`http://localhost:3000/api/task/${this.id}`,
+      axios.put(`${BASE_URL}/api/task/${this.id}`,
         { task_name: this.taskname }
       ).then((res) => {
         this.taskname = ''
@@ -87,7 +88,7 @@ export default {
       })
     },
     deleteTask (id) {
-      axios.delete(`http://localhost:3000/api/task/${id}`
+      axios.delete(`${BASE_URL}/api/task/${id}`
       ).then((res) => {
         this.taskname = ''
         this.getTasks()
